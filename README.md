@@ -1,19 +1,18 @@
-## @konklone's git precommit hook
+## DONTCOMMIT
 
-Catches the slug `DONTCOMMIT` in any `git diff` before I commit something, and then aborts the commit until I resolve it or use `git commit --no-verify`.
+Catches the term `DONTCOMMIT` in any `git diff` before I commit something, and refuses to commit it until I either remove the offending line, or use `git commit --no-verify`.
 
 For example, if I add this to a Python script:
 
 ```python
 # DONTCOMMIT
-print("Intentionally crashing the script...")
-raise Exception("What happens when I crash it")
+raise Exception("Testing what happens when I crash it")
 ```
 
 And then I forget I added it, and try to commit these lines, this pre-commit hook will *SAVE THE DAY* and print out:
 
 ```bash
-$ git commit -m "I hope you stop me from comitting this"
+$ git commit -m "I hope you stop me from committing this"
 Error: git pre-commit hook forbids committing "DONTCOMMIT" to myscript.py
 --------------
 To commit anyway, use --no-verify
