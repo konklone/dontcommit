@@ -31,7 +31,7 @@ Run this for each repo you want to set up the hook:
 
 Bear in mind this sets up a **symlink**, so any changes you make to this repo will get made to all repos you've run this script for.
 
-You
+It will back up the old `.git/hooks` directory to `.git/hooksOLD` for that repository, just in case you had anything important in there. **But** if you run the script a second time, the `.git/hooksOLD` directory will be *deleted*.
 
 ### Credits
 
